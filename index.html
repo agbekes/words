@@ -6716,6 +6716,7 @@ var $elm$html$Html$Events$onClick = function (msg) {
 		'click',
 		$elm$json$Json$Decode$succeed(msg));
 };
+var $elm$html$Html$pre = _VirtualDom_node('pre');
 var $elm$core$String$fromList = _String_fromList;
 var $elm$core$String$cons = _String_cons;
 var $elm$core$String$fromChar = function (_char) {
@@ -6816,6 +6817,19 @@ var $author$project$Main$renderGuess = function (mr) {
 		A2($elm$core$List$map, $author$project$Main$renderOneLetter, mr));
 };
 var $elm$html$Html$table = _VirtualDom_node('table');
+var $elm$core$String$concat = function (strings) {
+	return A2($elm$core$String$join, '', strings);
+};
+var $author$project$Main$userManualHU = A2(
+	$elm$core$List$map,
+	function (x) {
+		return $elm$html$Html$text(
+			$elm$core$String$concat(
+				_List_fromArray(
+					['   ', x, '\n'])));
+	},
+	_List_fromArray(
+		['Gépelj be egy magyar szót!', '<ENTER>: szó kipróbálása', '<5>: új játék 5 betűs szavakkal', '<6>: új játék 6 betűs szavakkal', '<7>: új játék 7 betűs szavakkal']));
 var $author$project$Main$showGame = function (game) {
 	var title = '=======####### S Z A V A K #######=======';
 	var newGameButtons = _List_fromArray(
@@ -6923,6 +6937,19 @@ var $author$project$Main$showGame = function (game) {
 												A2($elm$html$Html$Attributes$style, 'border-collapse', 'collapse')
 											]),
 										A2($elm$core$List$map, $author$project$Main$renderGuess, game.letters))
+									])),
+								A2(
+								$elm$html$Html$td,
+								_List_Nil,
+								_List_fromArray(
+									[
+										A2(
+										$elm$html$Html$pre,
+										_List_fromArray(
+											[
+												A2($elm$html$Html$Attributes$style, 'text-align', 'left')
+											]),
+										$author$project$Main$userManualHU)
 									]))
 							]))
 					]))));
